@@ -1,0 +1,32 @@
+<div id="budgetForm" class="mt-4 border" [formGroup]="inputFormGroup">
+  <div class="row m-1">
+      <h5 *ngIf="show.new">New Input </h5>
+      <h5 *ngIf="!show.new"> Input </h5>
+      <div class="col">
+          <label class="form-label">Vendor</label>
+          <select class="form-select form-select-sm" formControlName="idVendor">
+              <option value= "-1">Select Vendor</option>
+              <option value="{{item.idVendor}}" *ngFor="let item of inputVendorList">{{item.vendorName}}</option>
+          </select>
+      </div>
+      <div class="col">
+          <label class="form-label">Date</label>
+          <input type="date" class="form-control form-control-sm form-control-calendar" formControlName="operationDate">
+      </div>
+      <div class="col">
+          <label class="form-label">amount</label>
+          <input type="number" class="form-control form-control-sm" formControlName="amount">
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Comment</label>
+        <input type="text" class="form-control form-control-sm" formControlName="commentText">
+    </div>
+</div>
+<div class="col clearfix mt-2">
+  <button class="btn btn-sm btn-secondary float-end me-1" (click)="onCloseClick()"> <i class="bi bi-x-octagon"></i> Cancel</button>
+  <button class="btn btn-sm btn-primary  float-end me-1" *ngIf="show.new" (click)="onCreateClick()">insert</button>
+  <button class="btn btn-sm btn-danger float-end me-1" *ngIf="!show.new" (click)="onDeleteClick()">Delete</button>
+  <button class="btn btn-sm btn-primary  float-end me-1" *ngIf="!show.new" (click)="onUpdateClick()">Update</button>
+</div>
+

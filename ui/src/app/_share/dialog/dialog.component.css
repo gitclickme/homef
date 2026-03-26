@@ -1,0 +1,58 @@
+@media screen and (min-width: 768px){
+  .dialog-modal-w {
+      width: 40% !important;
+  }
+}
+
+.sr-hover {
+  cursor: pointer;
+}
+
+.show-modal {
+  display: block !important;
+}
+
+.hide-modal {
+  display: none !important;
+}
+
+.no-background {
+  background-color: transparent;
+}
+
+
+.dialog-modal {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 0;
+  z-index: 2050;
+  overflow: hidden;
+  outline: 0;
+  width: 80%;
+}
+
+
+
+.dialog-modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #FFF;
+}
+
+.dialog-modal-backdrop.show {
+  opacity: 0;
+}
+
+.dialog-btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0.8rem 0.8rem;
+}

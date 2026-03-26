@@ -1,0 +1,48 @@
+{
+  "name": "hf",
+  "version": "1.0.0",
+  "description": "homeF as AI",
+  "main": "index.js",
+ "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon app.ts",
+    "test": "cross-env NODE_ENV=development nodemon app.ts",
+    "click": "cross-env NODE_ENV=click nodemon app.ts",
+    "prod": "cross-env NODE_ENV=production nodemon app.ts",
+    "build-test": "cross-env NODE_ENV=development tsc --build",
+    "build-click": "cross-env NODE_ENV=click tsc --build",
+    "build-prod": "cross-env NODE_ENV=production tsc --build"
+  },
+  "author": "click",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
+    "nodemon": "^3.1.10",
+    "swagger-ui-express": "^5.0.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.2",
+    "@types/joi": "^17.2.2",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.15.29",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/yamljs": "^0.2.33",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+     "@types/winston": "^2.4.4",
+    "typescript": "^5.8.3"
+  }
+}

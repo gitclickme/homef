@@ -1,0 +1,43 @@
+<div id="budgetForm" class="mt-4 border">
+  <div class="row m-1" [formGroup]="budgetFormGroup">
+      <h5 *ngIf="show.new">New Budget </h5>
+      <h5 *ngIf="!show.new">Edit Budget </h5>
+
+      <div class="col-lg-3 col-sm-6">
+          <label class="form-label">Item</label>
+          <select class="form-select form-select-sm" formControlName="idItem" >
+              <option value="-1">-- select item --</option>
+              <option value="{{item.idItem}}" *ngFor="let item of itemList">{{item.itemName}}</option>
+          </select>
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+        <label class="form-label">amount</label>
+        <input type="number"  class="form-control form-control-sm" formControlName="amount">
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+          <label class="form-label">beginDate</label>
+          <input type="date" class="form-control form-control-sm form-control-calendar" formControlName="beginDate">
+      </div>
+
+      <div class="col-lg-3 col-sm-6">
+          <label class="form-label">endDate</label>
+          <input type="date" class="form-control form-control-sm form-control-calendar" formControlName="endDate">
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control form-control-sm" formControlName="descriptionText">
+      </div>
+
+
+    </div>
+    <div class="clearfix mt-2 mb-2">
+      <button class="btn btn-sm btn-secondary float-end me-4" (click)="onCancel()">Cancel</button>
+      <button class="btn btn-sm btn-primary me-1 float-end" *ngIf="show.new" (click)="onCreateBudget()">Create</button>
+      <button class="btn btn-sm btn-primary me-1 float-end" *ngIf="!show.new" (click)="onUpdateBudget()">Update</button>
+
+    </div>
+
+</div>

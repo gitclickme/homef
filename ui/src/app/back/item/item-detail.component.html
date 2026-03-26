@@ -1,0 +1,29 @@
+<div id="item" class="mt-4 border">
+  <div class="row m-1" [formGroup]="itemFormGroup">
+      <h5 *ngIf="show.new">New Item </h5>
+      <h5 *ngIf="!show.new">Edit Item {{item.itemName}} </h5>
+      <div class="col">
+          <label class="form-label mouse-pointer"><input type="checkbox" class="mouse-pointer" formControlName="active"> Active</label><br>
+          <label class="form-label">Item name</label>
+          <input type="text" class="form-control form-control-sm " formControlName="itemName">
+          <input type="number" class="form-control form-control-sm " formControlName="amount">
+      </div>
+      <div class="col">
+          <label class="form-label">Vendors</label>
+          <ul class="list-group" >
+              <li class="list-group-item" formArrayName="vendorList" *ngFor="let vendorItem of vendorListCheckArray.controls; let i = index" >
+                <label class="mouse-pointer"> <input type="checkbox" [checked]="vendorList[i].isCheck" formControlName="{{i}}"> {{vendorList[i].vendorName}}</label>
+              </li>
+          </ul>
+      </div>
+    </div>
+  <div class="clearfix mt-2 mb-2">
+    <button class="btn btn-sm btn-secondary float-end me-4" (click)="onCloseClick()">Cancel</button>
+    <button class="btn btn-sm btn-primary me-1 float-end" (click)="onCreateClick()" *ngIf="show.new" >Create</button>
+    <button class="btn btn-sm btn-danger me-1 float-end" (click)="onDeleteClick()" *ngIf="!show.new" >Delete</button>
+    <button class="btn btn-sm btn-primary me-1 float-end" (click)="onUpdateClick()" *ngIf="!show.new" >Update</button>
+
+
+  </div>
+
+</div>

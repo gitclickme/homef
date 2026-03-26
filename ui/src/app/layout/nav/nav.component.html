@@ -1,0 +1,78 @@
+<header class="mb-3">
+
+      <!--
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                      <div class="navbar-nav">
+                          <a class="nav-link active" aria-current="page" routerLink="./back/item">items</a>
+                          <a class="nav-link" routerLink="./back/vendor">vendor</a>
+                          <a class="nav-link" routerLink="./op/budget">budget</a>
+                          <a class="nav-link" routerLink="./op/in">input</a>
+                          <a class="nav-link" routerLink="./op/out">output</a>
+                      </div>
+                  </div>
+              </div>
+          </nav>
+
+
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <h5 class="text-white">Home Financial</h5>
+        <button class="navbar-toggler" type="button" (click)="showMenu()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <div [class]="{'collapse':true ,'show':show.menu}" id="navbarToggleExternalContent" data-bs-theme="dark">
+      <div class="bg-dark p-4">
+        <span class="text-body-secondary">
+          <a class="nav-link" routerLink="item"    (click)="showMenu()">Items</a>
+          <a class="nav-link" routerLink="vendor"  (click)="showMenu()">Vendor</a>
+          <a class="nav-link" routerLink="budget"  (click)="showMenu()">Budget</a>
+          <a class="nav-link" routerLink="in"      (click)="showMenu()">Input</a>
+          <a class="nav-link" routerLink="out"      (click)="showMenu()">Output</a></span>
+      </div>
+  </div>
+
+</header>
+
+   -->
+
+           <header class="mb-3">
+            <div class="row ms-5 me-6">
+                <div class="col pt-4">
+                    <h3>HomeF</h3>
+                </div>
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Home</a>
+                            <button
+                                class="navbar-toggler"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavAltMarkup"
+                                aria-controls="navbarNavAltMarkup"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                <div class="navbar-nav">
+                                    <a class="nav-link active" aria-current="page" routerLink="item">Item</a>
+                                    <a class="nav-link" routerLink="vendor">Vendor</a>
+                                    <a class="nav-link" routerLink="budget">Budget</a>
+                                    <a class="nav-link" routerLink="in" >Input</a>
+                                    <a class="nav-link" routerLink="out" >Output</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>

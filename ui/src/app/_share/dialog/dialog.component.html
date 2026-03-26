@@ -1,0 +1,59 @@
+<div [class]="showModalBackDropClass"></div>
+
+
+<div [class]="showModalClass" id="dialogModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <ng-container *ngIf="dialogData.dialogType === 'inform'">
+    <div class="card border-primary">
+      <div class="pt-0 pb-0 ps-4 mb-0 alert alert-primary">
+        <h4 style="color:blue;">
+          <i class="bi bi-info-circle" style="font-size: 1.3em; font-weight: bold; margin-right: 0.5em;"></i>
+          Info
+        </h4>
+      </div>
+      <div class="card-body">
+        <span>{{dialogData.dialogMsg}}</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="dialogData.dialogType === 'alert'">
+    <div class="card border-danger">
+      <div class="pt-0 pb-0 ps-4 mb-0 alert alert-danger">
+        <h4 style="color:red;">
+          <i class="bi bi-exclamation-triangle" style="font-size: 1.3em; font-weight: bold; margin-right: 0.5em;"></i>
+          Alert
+        </h4>
+        <button type="button" class="btn btn-close btn-sm float-end dialog-btn-close" aria-label="Close"
+          (click)="closeDialog()"></button>
+      </div>
+      <div class="card-body">
+        {{dialogData.dialogMsg}}
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="dialogData.dialogType === 'confirm'">
+    <div class="card border-warning">
+      <div class="pt-0 pb-0 ps-4 mb-0 alert alert-warning">
+        <h4 style="color:red;">
+          <i class="bi bi-check-square" style="font-size: 1.3em; font-weight: bold; margin-right: 0.5em;"></i>
+          Confirm
+        </h4>
+        <button type="button" class="btn btn-close btn-sm float-end dialog-btn-close" aria-label="Close"
+          (click)="closeDialog()"></button>
+      </div>
+      <div class="card-body">
+        {{dialogData.dialogMsg}}
+      </div>
+      <div class="border-top pe-3 pb-1 pt-1 ps-3 alert alert-warning mb-0">
+        <button type="button" class="btn btn-outline-secondary btn-sm float-start" (click)="closeDialog()"><i
+            class="bi bi-x-square"></i> No</button>
+        <button type="button" class="btn btn-outline-primary btn-sm float-end me-1" (click)="clickAcceptConfirm()">
+          <i class="bi bi-check-circle"></i> Yes </button>
+      </div>
+    </div>
+
+  </ng-container>
+
+

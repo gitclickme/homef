@@ -1,0 +1,96 @@
+<h4>Budgets</h4>
+<hr>
+<div class="container">
+    <div id="budgetFinder">
+        <h5>Find</h5>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">beginDate</label>
+                <input type="month" class="form-control form-control-sm form-control-calendar" [formControl]="searchDateForm">
+            </div>
+            <div class="col">
+              <label class="form-label">item</label>
+              <select class="form-select" [formControl]="idItemForm">
+                <option value="-1">all items</option>
+                <option value="{{item.idItem}}" *ngFor="let item of idItemList">{{item.itemName}}</option>
+                </select>
+          </div>
+        </div>
+    </div>
+    <div id="budgetList" class="mt-4">
+        <div class="card">
+            <div class="card-header clearfix">
+                <h4 class="float-start">Budget List</h4>
+                <button class="btn btn-sm btn-primary float-end ms-1" (click)="onNewBudget()"> <i class="bi bi-plus-circle"></i> Add New Budget</button>
+                <button class="btn btn-sm btn-danger float-end" (click)="onActiveBudget()"><i class="bi bi-calendar-check"></i> Active Budget</button>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <td class="float-end">
+                              <button class="btn btn-sm btn-primary" title="add new budget"><i class="bi bi-plus-circle"></i></button>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody [formGroup]="budgetFormGroup">
+                      <ng-container *ngIf="show.new" >
+                        <tr>
+                          <td colspan="2">
+                            <app-budget-detail [formType]="show.budgetDetailType" [budget]="budget" (ret)="onBudgetDetailReturn($event)"></app-budget-detail>
+                        </td>
+                      </tr>
+                      </ng-container>
+                        <tr class="mouse-pointer" formArrayName="checkActive" *ngFor="let item of budgetList; let i=index">
+                          <ng-container *ngIf="!item.tableManagement.isEditing">
+                            <td>
+                                  <div class="row">
+                                    <div class="sm-col-12 md-col-6">
+                                      <i class="{{item.active | active}} me-1" title="{{item.active | titleActive}}"></i> <i class="{{item.closed | closed}} me-1" title="{{item.closed | titleClosed}}"></i>
+                                      <input type="checkbox" class="form-check-large"  id="cb{{i}}" [checked]="item.active" formControlName="{{i}}">
+                                      <span class="ms-3 pt-2 fs-4 fw-semibold nowrap">{{item.itemName}}</span>
+                                    </div>
+                                    <div class="sm-col-12  md-col-6">
+                                      <span class="no-wrap pt-2 fs-7">from: <span class="fw-semibold">{{item.beginDate}}</span> to: <span class="fw-semibold">{{item.endDate}}</span></span>
+                                    </div>
+                              </div>
+                              <div class="clear-fix">
+                               <label>Amount:<span class="ms-1 fw-semibold fs-4">{{item.amount | currency}}</span></label>
+                               <label class="ms-3 float-end">Balance: <span class="ms-1 fw-semibold  fs-4 text-primary">{{item.balance | currency}}</span></label>
+                              </div>
+                              <div class="text-secondary border ps-1">
+                                {{item.descriptionText}}
+                              </div>
+                            </td>
+                            <td class="text-end align-middle">
+                              <button class="btn btn-sm btn-primary me-1" *ngIf="item.closed == 0" (click)="onSelectBudget(item.idBudget)"><i class="bi bi-pencil-square"></i></button>
+                            </td>
+                          </ng-container>
+                          <ng-container *ngIf="item.tableManagement.isEditing">
+                          <td colspan="7">
+                            <app-budget-detail [formType]="show.budgetDetailType" [budget]="item" (ret)="onBudgetDetailReturn($event)"></app-budget-detail>
+                          </td>
+                          </ng-container>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="2">
+                          <div>
+                            <label class="ms-3 float-end">Balance: <span class="ms-1 fw-bold text-primary">{{total.balance | currency}}</span></label>
+                            <label class="ms-3 float-end">Budget: <span class="ms-1 fw-bold ">{{total.budget|currency}} </span></label>
+
+                            {{(total.budget - total.balance) | currency}}
+                          </div>
+                        </td>
+                     </tr>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
