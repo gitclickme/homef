@@ -1,16 +1,9 @@
-import dotenv from 'dotenv';
+
 import path from 'path';
+import 'dotenv/config';
+import logger from './logger';
 
-// Determine environment
-const env = process.env.NODE_ENV || 'development';
-
- console.log('NODE_ENV Config', env);
-
-// Load .env and .env.development files
-dotenv.config({ path: path.resolve(process.cwd(), '.env.'+env) });
-if (env === 'development') {
-    dotenv.config({ path: path.resolve(process.cwd(), '.env.development') });
-}
+logger.info(`Reading env, ${process.env.ENVIRONMENT}`)
 
 // Export configuration object
 export const ConfigEnv = {
@@ -30,5 +23,3 @@ export const ConfigEnv = {
     // Add more config variables as needed
 export default ConfigEnv;
 // Example usage:
-
-

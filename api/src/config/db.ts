@@ -1,10 +1,9 @@
 import mysql, { Connection } from 'mysql2/promise';
 import logger from './logger'; // Import logger
-import { config } from 'dotenv';
 import ConfigEnv from './config';
 
 // Load environment variables from .env file
-config();
+
 
 /**
  * Establishes and returns a new MySQL database connection.
@@ -56,7 +55,6 @@ export async function callSP(query:string, param: any[]): Promise<any>{
       
 }
 
-
 export async function callSPNoParam(query:string): Promise<any>{
       const connection = await getConnection();
        try{
@@ -90,7 +88,6 @@ export async function executeQuery(query: string, params: any[] = []): Promise<a
   }
 }
 
-
 export async function testConnection(): Promise<void> {
   try {
     const connection = await getConnection();
@@ -119,5 +116,3 @@ function addParams(query: string, param: any[]): string {
     return query
   }
 
-
-  

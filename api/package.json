@@ -2,21 +2,28 @@
   "name": "hf",
   "version": "1.0.0",
   "description": "homeF as AI",
-  "main": "index.js",
- "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon app.ts",
-    "test": "cross-env NODE_ENV=development nodemon app.ts",
-    "click": "cross-env NODE_ENV=click nodemon app.ts",
-    "prod": "cross-env NODE_ENV=production nodemon app.ts",
-    "build-test": "cross-env NODE_ENV=development tsc --build",
-    "build-click": "cross-env NODE_ENV=click tsc --build",
-    "build-prod": "cross-env NODE_ENV=production tsc --build"
+  "main": "dep/api/src/index.js",
+  "scripts": {
+   
+    "postinstall": "npm run build",
+    "build": "tsc --build",
+    "start": "node ./dep/api/src/index.js",
+  
+    "start:test": "cross-env NODE_ENV=test node dep/src/index.js",
+   
+    "dev":  "dotenv -e .env.development nodemon --exec tsx src/index.ts",
+    "click": "dotenv -e .env.click nodemon --exec tsx src/index.ts",
+
+    "build-test": "dotenv -e .env.development npm run build",
+    "build-click": "dotenv -e .env.click tsc --build",
+    "build-prod":  "dotenv -e .env.production tsc --build"
   },
   "author": "click",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
+    "dotenv-cli": "^11.0.0",
     "express": "^5.1.0",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
@@ -33,6 +40,7 @@
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.15.29",
     "@types/swagger-ui-express": "^4.1.6",
+    "@types/winston": "^2.4.4",
     "@types/yamljs": "^0.2.33",
     "@typescript-eslint/eslint-plugin": "^8.33.1",
     "@typescript-eslint/parser": "^8.33.1",
@@ -42,7 +50,6 @@
     "eslint-plugin-prettier": "^5.4.1",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
-     "@types/winston": "^2.4.4",
     "typescript": "^5.8.3"
   }
 }

@@ -1,0 +1,24 @@
+{
+  "name": "hf",
+  "version": "1.0.0",
+  "description": "homeF as AI",
+  "main": "api/src/index.js",
+  "scripts": {
+    "postinstall": "npm start",
+    "start": "node api/src/index.js"
+  },
+  "author": "click",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
+    "nodemon": "^3.1.10",
+    "swagger-ui-express": "^5.0.0",
+    "winston": "^3.17.0"
+  }
+ 
+}
