@@ -7,6 +7,8 @@ exports.ConfigEnv = void 0;
 require("dotenv/config");
 const logger_1 = __importDefault(require("./logger"));
 logger_1.default.info(`Reading env, ${process.env.ENVIRONMENT}`);
+logger_1.default.info(`Reading pass, ${process.env.DB_PASSWORD}`);
+logger_1.default.info(`Reading user, ${process.env.DB_USER}`);
 exports.ConfigEnv = {
     environment: process.env.ENVIRONMENT,
     port: process.env.PORT || 3000,

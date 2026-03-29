@@ -137,3 +137,6 @@ dist
 .ui/.angular*
 .ui/.vscode*
 .ui/public*
+.api/dep*
+.db*
+.hf*

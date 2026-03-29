@@ -7,11 +7,11 @@ const startServer = () =>{
 // Starting
 try{
      const server = app.listen(ConfigEnv.port, () =>{
-                logger.info(`Server environment: ${ConfigEnv.environment}`);
-                logger.info(`Server environment: ${ConfigEnv.environment}`);
-                logger.info(`Server running on port: ${ConfigEnv.port}/${ConfigEnv.apiUrl}`);
-                logger.info(`Server DB_Host: ${ConfigEnv.dbConfig.host}`);
-                logger.info(`Server DB: ${ConfigEnv.dbConfig.database}`);
+                logger.info(`Server environment:${ConfigEnv.environment}`);
+                logger.info(`Server environment:${ConfigEnv.environment}`);
+                logger.info(`Server running on port:${ConfigEnv.port}/${ConfigEnv.apiUrl}`);
+                logger.info(`Server DB_Host:${ConfigEnv.dbConfig.host}`);
+                logger.info(`Server DB:${ConfigEnv.dbConfig.database}`);
                });
          
         process.on('unhandledRejection', (err: Error) => {

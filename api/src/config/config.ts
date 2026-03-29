@@ -3,7 +3,9 @@ import path from 'path';
 import 'dotenv/config';
 import logger from './logger';
 
-logger.info(`Reading env, ${process.env.ENVIRONMENT}`)
+logger.info(`Reading env, ${process.env.ENVIRONMENT}`);
+logger.info(`Reading pass, ${process.env.DB_PASSWORD}`);
+logger.info(`Reading user, ${process.env.DB_USER}`);
 
 // Export configuration object
 export const ConfigEnv = {

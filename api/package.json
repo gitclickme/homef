@@ -13,6 +13,7 @@
    
     "dev":  "dotenv -e .env.development nodemon --exec tsx src/index.ts",
     "click": "dotenv -e .env.click nodemon --exec tsx src/index.ts",
+    "hostinger": "dotenv -e .env.production nodemon --exec tsx src/index.ts",
 
     "build-test": "dotenv -e .env.development npm run build",
     "build-click": "dotenv -e .env.click tsc --build",
